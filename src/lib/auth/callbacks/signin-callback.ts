@@ -18,7 +18,8 @@ export async function signinCallback({ user, account }: CallbackProps) {
     });
 
     if (findUser) {
-      return false;
+      // if user exist, skip create new user process
+      return true;
     }
 
     // create new user
