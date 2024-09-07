@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import { AuthProvider } from "@/components/providers/auth-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,9 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} relative w-full`}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );
