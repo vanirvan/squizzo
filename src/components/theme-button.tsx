@@ -5,19 +5,22 @@ import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 
+import { cn } from "@/lib/utils/cn";
+
 interface ComponentProps {
-  padding?: number | null;
+  padding?: number;
   size?: number;
+  className?: string;
 }
 
-export function ThemeButton({ padding = null, size = 4 }: ComponentProps) {
+export function ThemeButton({ padding, size = 4, className }: ComponentProps) {
   const { theme, setTheme } = useTheme();
 
   return (
     <Button
       variant={"ghost"}
       size="icon"
-      className={`relative ${padding ? `p-${padding}` : ""}`}
+      className={cn(`relative ${padding ? `p-${padding}` : ""}`, className)}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <SunIcon
