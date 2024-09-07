@@ -26,4 +26,16 @@ describe("Transform email string to username", () => {
     const expectedUsername = "";
     expect(emailToUsername(email)).toBe(expectedUsername);
   });
+
+  test("should return empty string if empty string is passed", () => {
+    const email = "";
+    const expectedUsername = "";
+    expect(emailToUsername(email)).toBe(expectedUsername);
+  });
+
+  test("should return empty string if null is passed", () => {
+    const email = null;
+    const expectedUsername = "";
+    expect(emailToUsername(email)).toBe(expectedUsername);
+  });
 });
