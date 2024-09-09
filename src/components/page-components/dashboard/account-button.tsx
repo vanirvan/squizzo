@@ -35,7 +35,7 @@ export function AccountButton() {
       <DropdownMenuContent align="end" className="">
         <DropdownMenuLabel>{session?.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <a href="/settings">
+        <a href="/dashboard/settings">
           <DropdownMenuItem className="flex cursor-pointer items-center gap-4">
             <SettingsIcon className="h-4 w-4" />
             <span>Settings</span>
